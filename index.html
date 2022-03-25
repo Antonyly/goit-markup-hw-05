@@ -29,7 +29,7 @@
                 </ul>
             </nav>
             <ul class="main-conacts list">
-                <li class="contact-number">
+                <li class="contact-mail">
 
                     <a class="contact-link link" href="mailto:info@devstudio.com">
                         <svg class="header-icon" width="16" height="12">
@@ -38,7 +38,7 @@
                         </svg>
                         info@devstudio.com</a>
                 </li>
-                <li class="contact-mail">
+                <li class="contact-number">
 
 
                     <a class="contact-link link" href="tel:+380961111111">
@@ -56,9 +56,16 @@
         <!-- ========= Hero ========= -->
 
         <section class="hero hero-bg">
-            <div class="container hero-container" width="1600" height="600">
+            <div class="container hero-container" >
                 <h1 class="hero-title">Эффективные решения <br>для вашего бизнеса</h1>
-                <button class="hero-btn" type="button">Заказать услугу</button>
+                <button class="hero-btn" type="button" data-modal-open>Заказать услугу</button>
+            </div>
+            <div class="backdrop is-hidden" data-modal>
+                <div class="modal">
+                    <svg class="close" width="30" height="30" data-modal-close>
+                        <use href="./icons/sprite.svg#close"></use>
+                    </svg>
+                </div>
             </div>
         </section>
 
@@ -130,12 +137,27 @@
                 <h2 class="obligation">Чем мы занимаемся</h2>
 
                 <ul class="obligation-list list">
-                    <li class="obligation-list-item"><img src="./img/studio-1.jpg" class="obligation-photo"
-                            alt="печатает код" width="370"></li>
-                    <li class="obligation-list-item"><img src="./img/studio-2.jpg" class="obligation-photo"
-                            alt="синхронизирует телефон с пк" width="370"></li>
-                    <li class="obligation-list-item"><img src="./img/studio-3.jpg" class="obligation-photo"
-                            alt="выбирает цвет" width="370"></li>
+                    <li class="obligation-list-item">
+                        <img src="./img/studio-1.jpg" class="obligation-photo" alt="печатает код" width="370">
+                        <h2 class="main-overlay-text overlay-bg">
+                            Десктопные приложения
+                        </h2>
+                    </li>
+                        <li class="obligation-list-item">
+                             <img src="./img/studio-2.jpg" class="obligation-photo" alt="печатает код" width="370">
+                            
+                            <h2 class="main-overlay-text overlay-bg">
+                                Мобильные приложения
+                            </h2>
+                        </li>
+                        <li class="obligation-list-item">
+                            <img src="./img/studio-3.jpg" class="obligation-photo" alt="печатает код" width="370">
+                            
+                            <h2 class="main-overlay-text overlay-bg">
+                                Дизайнерские решения
+                            </h2>
+                        </li>
+                         
                 </ul>
             </div>
         </section>
@@ -367,12 +389,15 @@
                     <a class="footer-logo link" href="./index.html"><span class="logo-site-footer">Web</span>Studio</a>
                     <address class="footer-addresses">
                         <ul class="footer-list list">
-                            <li class="footer-list-item"><a class="footer-list-address link"
+                            <li class="footer-list-item">
+                                <a class="footer-list-address link"
                                     href="https://goo.gl/maps/dBc9ygSWZL8AYV39A">г. Киев, пр-т Леси Украинки, 26</a>
                             </li>
-                            <li class="footer-list-item"><a class="footer-list-link link"
+                            <li class="footer-list-item">
+                                <a class="footer-list-link link"
                                     href="mailto:info@example.com">info@example.com</a></li>
-                            <li class="footer-list-item"><a class="footer-list-link link" href="tel:+380991111111">+38
+                            <li class="footer-list-item">
+                                <a class="footer-list-link link" href="tel:+380991111111">+38
                                     096 111 11 11</a></li>
                         </ul>
 
@@ -383,28 +408,28 @@
                     <ul class="second-list list">
                         <li class="second-list-item">
                             <a href="" class="list-item-link">
-                                <svg class="second-list-icom" width="20" height="20">
+                                <svg class="second-list-icon" width="20" height="20">
                                     <use href="./icons/sprite.svg#instagram"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="second-list-item">
                             <a href="" class="list-item-link">
-                                <svg class="second-list-icom" width="20" height="20">
+                                <svg class="second-list-icon" width="20" height="20">
                                     <use href="./icons/sprite.svg#twitter"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="second-list-item">
                             <a href="" class="list-item-link">
-                                <svg class="second-list-icom" width="20" height="20">
+                                <svg class="second-list-icon" width="20" height="20">
                                     <use href="./icons/sprite.svg#facebook"></use>
                                 </svg>
                             </a>
                         </li>
                         <li class="second-list-item">
                             <a href="" class="list-item-link">
-                                <svg class="second-list-icom" width="20" height="20">
+                                <svg class="second-list-icon" width="20" height="20">
                                     <use href="./icons/sprite.svg#linkedin"></use>
                                 </svg>
                             </a>
@@ -414,6 +439,23 @@
             </div>
         </section>
     </footer>
+    <script>
+        (() => {
+                const refs = {
+                    openModalBtn: document.querySelector("[data-modal-open]"),
+                    closeModalBtn: document.querySelector("[data-modal-close]"),
+                    modal: document.querySelector("[data-modal]"),
+                };
+
+                refs.openModalBtn.addEventListener("click", toggleModal);
+                refs.closeModalBtn.addEventListener("click", toggleModal);
+
+                function toggleModal() {
+                    refs.modal.classList.toggle("is-hidden");
+                }
+            })();
+    </script>
+    
 </body>
 
 </html>
