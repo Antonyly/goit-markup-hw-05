@@ -425,19 +425,25 @@ img {
   align-items: center;
   width: 170px;
   height: 92px;
-  fill: #afb1b8;
+
   border: 1px solid #afb1b8;
   border-radius: 4px;
   transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1),
     fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-
+.clients-logo{
+  fill: #afb1b8;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
 .clients-link:hover,
 .clients-link:focus {
-  fill: #2196f3;
   border: 1px solid #2196f3;
   box-sizing: border-box;
   border-radius: 4px;
+}
+.clients-link:hover .clients-logo,
+.clients-link:focus .clients-logo{
+  fill: #2196f3;
 }
 
 /* ========= End clients ========= */
@@ -709,3 +715,4 @@ img {
 
   color: var(--secondary-text-color-light);
 }
+
